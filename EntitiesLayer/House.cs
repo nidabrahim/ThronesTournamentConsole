@@ -8,15 +8,65 @@ namespace EntitiesLayer
 {
     public class House : EntityObject
     {
-       
-        List<Character> Housers { get; set; }
         String Name { get; set; }
-        int NumberOfUnities { get; set; }
 
-    
+        private int numberOfUnities;
+
+        List<Character> Housers { get; set; }
         
-        public void AddHousers(Character character) { }
+        
+        public House()
+        {
+            Name = "Guest";
+            SetNumberOfUnities(GlobalVar.NUMBEROfUNITIES);
+            Housers = new List<Character>();
+        }
 
-        public House() { }
+        public House(String Name)
+        {
+            this.Name = Name;
+            SetNumberOfUnities(GlobalVar.NUMBEROfUNITIES);
+            Housers = new List<Character>();
+        }
+
+        public House(String Name, int NumberOfUnities)
+        {
+            this.Name = Name;
+            this.SetNumberOfUnities(NumberOfUnities);
+            Housers = new List<Character>();
+        }
+
+        public int GetNumberOfUnities()
+        {
+            return numberOfUnities;
+        }
+
+        private void SetNumberOfUnities(int value)
+        {
+            numberOfUnities = value;
+        }
+
+        public void AddHousers(ref Character character)
+        {
+            Housers.Add(character);
+        }
+
+        override
+        public String ToString()
+        {
+            String s = Name + "\n- Number of unities : " + GetNumberOfUnities() + "\n";
+
+            if (Housers.Count != 0)
+            {
+                s += "- Housers :\n";
+                foreach (Character character in Housers)
+                {
+                    s += "\t" + character.GetLastName() + " " + character.GetFirstName() + "\n";
+                }
+            }
+
+            return s;
+        }
+
     }
 }

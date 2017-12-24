@@ -12,5 +12,23 @@ namespace EntitiesLayer
         House houseChalleging;
         House houseChalleged;
         House winningHouse;
+        Territory territory;
+
+        public Fight(House houseChalleging, House houseChalleged, Territory territory)
+        {
+            this.houseChalleging = houseChalleging;
+            this.houseChalleged = houseChalleged;
+            this.territory = territory;
+
+
+            this.winningHouse = this.houseChalleging;
+
+
+        }
+
+        public void Winner()
+        {
+            Console.WriteLine("The winner is : \n" + winningHouse);
+        }
     }
 }

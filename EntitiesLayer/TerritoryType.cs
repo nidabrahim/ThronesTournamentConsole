@@ -4,9 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StubDataAccessLayer
+namespace EntitiesLayer
 {
-    public class Class1
+    public enum TerritoryType
     {
+        SEA,
+        MOUNTAIN,
+        LAND,
+        DESERT
     }
 }

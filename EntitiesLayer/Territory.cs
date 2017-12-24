@@ -6,13 +6,28 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer
 {
-    public enum TerritoryType { SEA, MOUNTAIN, LAND, DESERT }
-
+    
     public class Territory : EntityObject
     {
         TerritoryType TerritoryType;
         Character Owner { get; set; }
 
-        public Territory() { }
+        public Territory()
+        {
+            TerritoryType = TerritoryType.DESERT;
+            Owner = null;
+        }
+
+        public Territory(TerritoryType TerritoryType)
+        {
+            this.TerritoryType = TerritoryType;
+            Owner = null;
+        }
+
+        public Territory(TerritoryType TerritoryType, Character Owner)
+        {
+            this.TerritoryType = TerritoryType;
+            this.Owner = Owner;
+        }
     }
 }
