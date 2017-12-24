@@ -17,40 +17,38 @@ namespace BusinessLayer
             dalManager = new DalManager();
         }
 
-        public String ListHouses()
+        public List<String> ListHouses()
         {
-            List<House> houses = dalManager.GetAllHouses();
-            String res = "";
+            List<String> res = new List<String>();
+            dalManager.GetAllHouses().ForEach(h => res.Add(h.ToString()) );
 
             return res;
         }
 
-        public String ListHousesSup200Unit()
+        public List<String> ListHousesSup200Unit()
         {
-            List<House> houses = dalManager.GetAllHousesSup200Unit();
-            String res = "";
+            List<String> res = new List<String>();
+            dalManager.GetAllHousesSup200Unit().ForEach(h => res.Add(h.ToString()));
+
+            return res;
+
+        }
+
+        public List<String> ListCharacter()
+        {
+            List<String> res = new List<String>();
+            dalManager.GetAllCharacter().ForEach(c => res.Add(c.ToString()));
 
             return res;
         }
 
-        public String ListCharacter()
+        public List<String> ListTerritory()
         {
-            List<Character> character = dalManager.GetAllCharacter();
-            String res = "";
+            List<String> res = new List<String>();
+            dalManager.GetAllTerritory().ForEach(t => res.Add(t.ToString()));
 
             return res;
         }
-
-        public String ListTerritory()
-        {
-            List<Territory> Territory = dalManager.GetAllTerritory();
-            String res = "";
-
-            return res;
-        }
-
-
-
 
     }
 }

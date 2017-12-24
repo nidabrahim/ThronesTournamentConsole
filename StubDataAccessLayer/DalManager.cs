@@ -7,7 +7,7 @@ using EntitiesLayer;
 
 namespace StubDataAccessLayer
 {
-    public class DalManager
+    public class DalManager : IDal
     {
 
         public DalManager()
@@ -16,7 +16,17 @@ namespace StubDataAccessLayer
         public List<House> GetAllHouses()
         {
             List<House> houses = new List<House>();
-            houses.Add(new House("H1"));
+            houses.Add(new House("Stark"));
+            houses.Add(new House("Lannister"));
+            houses.Add(new House("Baratheon"));
+            houses.Add(new House("Tyrell"));
+            houses.Add(new House("Martell"));
+            houses.Add(new House("Tully"));
+            houses.Add(new House("Arryn"));
+            houses.Add(new House("Greyjoy"));
+            houses.Add(new House("Bolton"));
+            houses.Add(new House("Clegane"));
+            houses.Add(new House("Targaryen"));
 
             return houses;
         }

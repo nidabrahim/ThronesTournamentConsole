@@ -68,5 +68,14 @@ namespace EntitiesLayer
             return s;
         }
 
+
+        /*
+        private String _name;
+        public String Nom
+        {
+            get { return _nom; }
+            set { _nom = value; }
+        }
+        */
     }
 }
