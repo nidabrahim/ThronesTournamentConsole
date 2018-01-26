@@ -8,13 +8,21 @@ namespace EntitiesLayer
 {
     public class House : EntityObject
     {
-        String Name { get; set; }
+        public String Name { get; set; }
 
         private int numberOfUnities;
 
+        /*public int NumberOfUnities
+        {
+            get { return numberOfUnities; }
+            set { numberOfUnities = value; }
+        }*/
+
         List<Character> Housers { get; set; }
+
         
-        
+
+
         public House()
         {
             Name = "Guest";
