@@ -10,19 +10,62 @@ namespace EntitiesLayer
 
     public class Character : EntityObject
     {
-        private string firstName;
-        private string lastName;
-        
-        CharaterTypeEnum Type { get; set; }
-        int Bravoury { get; set; }
-        int Crazyness { get; set; }
-        int Pv { get; set; }
-        Dictionary<Character, RelationshipEnum> Relationships { get; set; }
+        private string _firstName;
+        private string _lastName;
+        private CharaterTypeEnum _type;
+        private int _bravoury;
+        private int _crazyness;
+        private int _pv;
+        private Dictionary<Character, RelationshipEnum> _relationships;
+
+
+        public String FirstName
+        {
+            get { return _firstName; }
+            set { _firstName = value; }
+        }
+
+        public String LastName
+        {
+            get { return _lastName; }
+            set { _lastName = value; }
+        }
+
+        public CharaterTypeEnum Type
+        {
+            get { return _type; }
+            set { _type = value; }
+        }
+
+        public int Bravoury
+        {
+            get { return _bravoury; }
+            set { _bravoury = value; }
+        }
+
+        public int Crazyness
+        {
+            get { return _crazyness; }
+            set { _crazyness = value; }
+        }
+
+        public int Pv
+        {
+            get { return _pv; }
+            set { _pv = value; }
+        }
+
+        public Dictionary<Character, RelationshipEnum> Relationships
+        {
+            get { return _relationships; }
+            set { _relationships = value; }
+        }
+
 
         public Character()
         {
-            SetFirstName("Guest");
-            SetLastName("Guest");
+            FirstName = "Guest";
+            LastName = "Guest";
             Type = CharaterTypeEnum.WARRIOR;
             Bravoury = 0;
             Crazyness = 0;
@@ -33,8 +76,8 @@ namespace EntitiesLayer
 
         public Character(String FirstName, String LastName)
         {
-            this.SetFirstName(FirstName);
-            this.SetLastName(LastName);
+            this.FirstName = FirstName;
+            this.LastName = LastName;
             Type = CharaterTypeEnum.WARRIOR;
             this.Bravoury = 0;
             this.Crazyness = 0;
@@ -44,8 +87,8 @@ namespace EntitiesLayer
 
         public Character(String FirstName, String LastName, CharaterTypeEnum CharaterType)
         {
-            this.SetFirstName(FirstName);
-            this.SetLastName(LastName);
+            this.FirstName = FirstName;
+            this.LastName = LastName;
             this.Type = CharaterType;
             this.Bravoury = 0;
             this.Crazyness = 0;
@@ -56,8 +99,8 @@ namespace EntitiesLayer
 
         public Character(String FirstName, String LastName, CharaterTypeEnum CharaterType, int Bravoury, int Crazyness)
         {
-            this.SetFirstName(FirstName);
-            this.SetLastName(LastName);
+            this.FirstName = FirstName;
+            this.LastName = LastName;
             this.Type = CharaterType;
             this.Bravoury = Bravoury;
             this.Crazyness = Crazyness;
@@ -65,25 +108,6 @@ namespace EntitiesLayer
             Relationships = new Dictionary<Character, RelationshipEnum>();
         }
 
-        public string GetLastName()
-        {
-            return lastName;
-        }
-
-        private void SetLastName(string value)
-        {
-            lastName = value;
-        }
-
-        public string GetFirstName()
-        {
-            return firstName;
-        }
-
-        private void SetFirstName(string value)
-        {
-            firstName = value;
-        }
 
         public void AddRelatives(Character Character, RelationshipEnum Relationship)
         {
@@ -93,13 +117,13 @@ namespace EntitiesLayer
         override
         public String ToString()
         {
-            String s = GetFirstName() + " " + GetLastName() + "\n- Bravoury : " + Bravoury + "\n- Crazyness : " + Crazyness + "\n- Pv : " + Pv + "\n";
+            String s = FirstName + " " + LastName + "\n- Bravoury : " + Bravoury + "\n- Crazyness : " + Crazyness + "\n- Pv : " + Pv + "\n";
             if (Relationships.Count != 0)
             {
                 s += "- Relationships :\n";
                 foreach (KeyValuePair<Character, RelationshipEnum> relation in Relationships)
                 {
-                    s += String.Format("\t{2} with {0} {1}\n", relation.Key.GetFirstName(), relation.Key.GetLastName(), relation.Value);
+                    s += String.Format("\t{2} with {0} {1}\n", relation.Key.FirstName, relation.Key.LastName, relation.Value);
                 }
             }
             

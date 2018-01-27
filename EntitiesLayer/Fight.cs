@@ -9,26 +9,48 @@ namespace EntitiesLayer
     public class Fight : EntityObject
     {
      
-        House houseChalleging;
-        House houseChalleged;
-        House winningHouse;
-        Territory territory;
+        private House _houseChalleging;
+        private House _houseChalleged;
+        private House _winningHouse;
+        private Territory _territory;
+
+
+        public House HouseChalleging
+        {
+            get { return _houseChalleging; }
+            set { _houseChalleging = value; }
+        }
+
+        public House HouseChalleged
+        {
+            get { return _houseChalleged; }
+            set { _houseChalleged = value; }
+        }
+
+        public House WinningHouse
+        {
+            get { return _winningHouse; }
+            set { _winningHouse = value; }
+        }
+
+        public Territory Territory
+        {
+            get { return _territory; }
+            set { _territory = value; }
+        }
+
 
         public Fight(House houseChalleging, House houseChalleged, Territory territory)
         {
-            this.houseChalleging = houseChalleging;
-            this.houseChalleged = houseChalleged;
-            this.territory = territory;
-
-
-            this.winningHouse = this.houseChalleging;
-
-
+            this.HouseChalleging = houseChalleging;
+            this.HouseChalleged = houseChalleged;
+            this.Territory = territory;
+            this.WinningHouse = this.HouseChalleging;
         }
 
         public void Winner()
         {
-            Console.WriteLine("The winner is : \n" + winningHouse);
+            Console.WriteLine("The winner is : \n" + WinningHouse);
         }
     }
 }

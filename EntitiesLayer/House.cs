@@ -8,50 +8,50 @@ namespace EntitiesLayer
 {
     public class House : EntityObject
     {
-        public String Name { get; set; }
+        private String _name;
+        private int _numberOfUnities;
+        List<Character> _housers;
 
-        private int numberOfUnities;
 
-        /*public int NumberOfUnities
+        public String Name
         {
-            get { return numberOfUnities; }
-            set { numberOfUnities = value; }
-        }*/
+            get { return _name; }
+            set { _name = value; }
+        }
 
-        List<Character> Housers { get; set; }
+        public int NumberOfUnities
+        {
+            get { return _numberOfUnities; }
+            set { _numberOfUnities = value; }
+        }
 
-        
+        public List<Character> Housers
+        {
+            get { return _housers; }
+            set { _housers = value; }
+        }
+
 
 
         public House()
         {
             Name = "Guest";
-            SetNumberOfUnities(GlobalVar.NUMBEROfUNITIES);
+            NumberOfUnities = GlobalVar.NUMBEROfUNITIES;
             Housers = new List<Character>();
         }
 
         public House(String Name)
         {
             this.Name = Name;
-            SetNumberOfUnities(GlobalVar.NUMBEROfUNITIES);
+            NumberOfUnities = GlobalVar.NUMBEROfUNITIES;
             Housers = new List<Character>();
         }
 
         public House(String Name, int NumberOfUnities)
         {
             this.Name = Name;
-            this.SetNumberOfUnities(NumberOfUnities);
+            this.NumberOfUnities = NumberOfUnities;
             Housers = new List<Character>();
-        }
-
-        public int GetNumberOfUnities()
-        {
-            return numberOfUnities;
-        }
-
-        private void SetNumberOfUnities(int value)
-        {
-            numberOfUnities = value;
         }
 
         public void AddHousers(ref Character character)
@@ -62,14 +62,14 @@ namespace EntitiesLayer
         override
         public String ToString()
         {
-            String s = Name + "\n- Number of unities : " + GetNumberOfUnities() + "\n";
+            String s = Name + "\n- Number of unities : " + NumberOfUnities + "\n";
 
             if (Housers.Count != 0)
             {
                 s += "- Housers :\n";
                 foreach (Character character in Housers)
                 {
-                    s += "\t" + character.GetLastName() + " " + character.GetFirstName() + "\n";
+                    s += "\t" + character.LastName + " " + character.FirstName + "\n";
                 }
             }
 
@@ -77,13 +77,6 @@ namespace EntitiesLayer
         }
 
 
-        /*
-        private String _name;
-        public String Nom
-        {
-            get { return _nom; }
-            set { _nom = value; }
-        }
-        */
+
     }
 }

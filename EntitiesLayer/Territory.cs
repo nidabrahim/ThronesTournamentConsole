@@ -9,8 +9,23 @@ namespace EntitiesLayer
     
     public class Territory : EntityObject
     {
-        TerritoryType TerritoryType;
-        Character Owner { get; set; }
+
+        private TerritoryType _territoryType;
+        private Character _owner;
+
+
+        public Character Owner
+        {
+            get { return _owner; }
+            set { _owner = value; }
+        }
+
+        public TerritoryType TerritoryType
+        {
+            get { return _territoryType; }
+            set { _territoryType = value; }
+        }
+
 
         public Territory()
         {

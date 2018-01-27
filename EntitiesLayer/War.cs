@@ -8,5 +8,17 @@ namespace EntitiesLayer
 {
     public class War : EntityObject
     {
+        private List<Fight> _fights;
+
+
+        public List<Fight> Fights
+        {
+            get { return _fights; }
+            set { _fights = value; }
+        }
+
+
+        public War() { }
+
     }
 }
