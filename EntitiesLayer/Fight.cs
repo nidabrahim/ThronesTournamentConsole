@@ -40,6 +40,8 @@ namespace EntitiesLayer
         }
 
 
+        public Fight() { }
+
         public Fight(House houseChalleging, House houseChalleged, Territory territory)
         {
             this.HouseChalleging = houseChalleging;

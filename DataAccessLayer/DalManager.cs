@@ -7,7 +7,7 @@ using EntitiesLayer;
 
 namespace DataAccessLayer
 {
-    class DalManager
+    public class DalManager
     {
         private static DalManager _instance;
         private static readonly object padlock = new object();

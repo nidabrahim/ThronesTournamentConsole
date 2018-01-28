@@ -10,7 +10,7 @@ namespace ThronesTournamentConsole
      class Program
     {
          static void Main(string[] args)
-         {
+         {/*
             Character c = new Character();
             Character c1 = new Character("fff","yyh");
             Character c2 = new Character("fff", "yyh", CharaterTypeEnum.LEADER, 0,0);
@@ -37,7 +37,7 @@ namespace ThronesTournamentConsole
             Territory territory = new Territory(TerritoryType.MOUNTAIN, c);
         
             Fight fight = new Fight(house,house2,territory);
-            fight.Winner();
+            fight.Winner();*/
 
             Console.ReadLine();
          }

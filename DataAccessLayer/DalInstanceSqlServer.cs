@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace DataAccessLayer
 {
-    class DalInstanceSqlServer : IDal
+    public class DalInstanceSqlServer : IDal
     {
 
         private static string connexionString = "Data Source = (LocalDB)\\MSSQLLocalDB;AttachDbFilename='C:\\Users\\youssefNIDA\\Documents\\ISIMA\\S2\\web Services\\DB\\db_thrones.mdf';Integrated Security = True; Connect Timeout = 30";
@@ -177,7 +177,7 @@ namespace DataAccessLayer
 
         public Fight GetFightById(int id)
         {
-            Character character = new Character();
+            Fight fight = new Fight();
 
             using (SqlConnection sqlConnection = new SqlConnection(connexionString))
             {
@@ -195,7 +195,7 @@ namespace DataAccessLayer
                 sqlConnection.Close();
             }
 
-            return character;
+            return fight;
         }
 
         public void SaveFight(Fight fight)

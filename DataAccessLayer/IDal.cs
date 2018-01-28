@@ -7,7 +7,7 @@ using EntitiesLayer;
 
 namespace DataAccessLayer
 {
-    interface IDal
+    public interface IDal
     {
         List<House> GetAllHouses();
         List<House> GetAllHousesSup200Unit();

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntitiesLayer", "EntitiesLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{00C37F36-2E75-4314-BD44-08682F5859F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiGoT", "WebApiGoT\WebApiGoT.csproj", "{F61FB4DB-8F3A-4A4A-A6A0-3822C93A33ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{00C37F36-2E75-4314-BD44-08682F5859F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00C37F36-2E75-4314-BD44-08682F5859F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00C37F36-2E75-4314-BD44-08682F5859F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F61FB4DB-8F3A-4A4A-A6A0-3822C93A33ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F61FB4DB-8F3A-4A4A-A6A0-3822C93A33ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F61FB4DB-8F3A-4A4A-A6A0-3822C93A33ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F61FB4DB-8F3A-4A4A-A6A0-3822C93A33ED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

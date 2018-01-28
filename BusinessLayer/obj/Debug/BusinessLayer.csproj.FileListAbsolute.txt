@@ -10,10 +10,10 @@ c:\users\yonidabrah\documents\visual studio 2012\Projects\ThronesTournamentConso
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\BusinessLayer.dll
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\BusinessLayer.pdb
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\EntitiesLayer.dll
-C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\StubDataAccessLayer.dll
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\EntitiesLayer.pdb
-C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\StubDataAccessLayer.pdb
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\obj\Debug\BusinessLayer.dll
 C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\obj\Debug\BusinessLayer.pdb
+C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\youssefNIDA\Documents\ISIMA\S2\web Services\ThronesTournamentConsole\BusinessLayer\bin\Debug\DataAccessLayer.pdb

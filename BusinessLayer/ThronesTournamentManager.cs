@@ -3,24 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StubDataAccessLayer;
+using DataAccessLayer;
 using EntitiesLayer;
 
 namespace BusinessLayer
 {
     public class ThronesTournamentManager
     {
-        private DalManager dalManager;
+        private IDal dal;
 
         public ThronesTournamentManager()
         {
-            dalManager = new DalManager();
+            dal = DalManager.Instance.Dal;
         }
 
-        public List<String> ListHouses()
+        public List<House> ListHouses()
         {
-            List<String> res = new List<String>();
-            dalManager.GetAllHouses().ForEach(h => res.Add(h.ToString()) );
+            List<House> res = new List<House>();
+            dal.GetAllHouses().ForEach(h => res.Add(h) );
+
+            return res;
+        }
+
+        public List<War> ListWars()
+        {
+            List<War> res = new List<War>();
+           // dal.GetAllWars().ForEach(h => res.Add(h));
+
+            return res;
+        }
+
+        public List<Fight> ListFights()
+        {
+            List<Fight> res = new List<Fight>();
+            dal.GetAllFights().ForEach(h => res.Add(h));
 
             return res;
         }
@@ -28,24 +44,24 @@ namespace BusinessLayer
         public List<String> ListHousesSup200Unit()
         {
             List<String> res = new List<String>();
-            dalManager.GetAllHousesSup200Unit().ForEach(h => res.Add(h.ToString()));
+            dal.GetAllHousesSup200Unit().ForEach(h => res.Add(h.ToString()));
 
             return res;
 
         }
 
-        public List<String> ListCharacter()
+        public List<Character> ListCharacters()
         {
-            List<String> res = new List<String>();
-            dalManager.GetAllCharacter().ForEach(c => res.Add(c.ToString()));
+            List<Character> res = new List<Character>();
+            dal.GetAllCharacters().ForEach(c => res.Add(c));
 
             return res;
         }
 
-        public List<String> ListTerritory()
+        public List<Territory> ListTerritories()
         {
-            List<String> res = new List<String>();
-            dalManager.GetAllTerritory().ForEach(t => res.Add(t.ToString()));
+            List<Territory> res = new List<Territory>();
+            dal.GetAllTerritories().ForEach(t => res.Add(t));
 
             return res;
         }
