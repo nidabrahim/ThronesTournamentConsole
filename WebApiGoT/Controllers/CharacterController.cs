@@ -15,6 +15,7 @@ namespace WebApiGoT.Controllers
         ThronesTournamentManager businessManager = new ThronesTournamentManager();
         
 
+        [Route("GetAllCharacters")]
         public List<CharacterDTO> GetAllCharacters()
         {
             List<CharacterDTO> listCharacter = new List<CharacterDTO>();
@@ -26,5 +27,8 @@ namespace WebApiGoT.Controllers
 
             return listCharacter;
         }
+
+        [Route("GetHi")]
+        public string GetHi() { return "hi";  }
     }
 }

@@ -38,7 +38,10 @@ namespace DataAccessLayer
         void DeleteTerritory(Territory territory);
 
 
+        TerritoryType GetTerritoryTypeById(int id);
 
+
+        List<War> GetAllWars();
 
     }
 }

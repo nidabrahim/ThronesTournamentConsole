@@ -12,11 +12,11 @@ namespace EntitiesLayer
     {
         private string _firstName;
         private string _lastName;
-        private CharaterTypeEnum _type;
         private int _bravoury;
         private int _crazyness;
         private int _pv;
-        private Dictionary<Character, RelationshipEnum> _relationships;
+        private CharacterType _type;
+        private List<Relation> _relations;
 
 
         public String FirstName
@@ -29,12 +29,6 @@ namespace EntitiesLayer
         {
             get { return _lastName; }
             set { _lastName = value; }
-        }
-
-        public CharaterTypeEnum Type
-        {
-            get { return _type; }
-            set { _type = value; }
         }
 
         public int Bravoury
@@ -55,10 +49,16 @@ namespace EntitiesLayer
             set { _pv = value; }
         }
 
-        public Dictionary<Character, RelationshipEnum> Relationships
+        public CharacterType Type
         {
-            get { return _relationships; }
-            set { _relationships = value; }
+            get { return _type; }
+            set { _type = value; }
+        }
+
+        public List<Relation> Relations
+        {
+            get { return _relations; }
+            set { _relations = value; }
         }
 
 
@@ -66,11 +66,11 @@ namespace EntitiesLayer
         {
             FirstName = "Guest";
             LastName = "Guest";
-            Type = CharaterTypeEnum.WARRIOR;
+            Type = new CharacterType(CharaterTypeEnum.WARRIOR);
             Bravoury = 0;
             Crazyness = 0;
             Pv = GlobalVar.PV;
-            Relationships = new Dictionary<Character, RelationshipEnum>();
+            Relations = new List<Relation>();
           
         }
 
@@ -78,22 +78,22 @@ namespace EntitiesLayer
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
-            Type = CharaterTypeEnum.WARRIOR;
-            this.Bravoury = 0;
-            this.Crazyness = 0;
-            this.Pv = GlobalVar.PV;
-            Relationships = new Dictionary<Character, RelationshipEnum>();
+            Type = new CharacterType(CharaterTypeEnum.WARRIOR);
+            Bravoury = 0;
+            Crazyness = 0;
+            Pv = GlobalVar.PV;
+            Relations = new List<Relation>();
         }
 
         public Character(String FirstName, String LastName, CharaterTypeEnum CharaterType)
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
-            this.Type = CharaterType;
+            new CharacterType(CharaterType);
             this.Bravoury = 0;
             this.Crazyness = 0;
             this.Pv = GlobalVar.PV;
-            Relationships = new Dictionary<Character, RelationshipEnum>();
+            Relations = new List<Relation>();
         }
 
 
@@ -101,29 +101,29 @@ namespace EntitiesLayer
         {
             this.FirstName = FirstName;
             this.LastName = LastName;
-            this.Type = CharaterType;
+            this.Type = new CharacterType(CharaterType);
             this.Bravoury = Bravoury;
             this.Crazyness = Crazyness;
             this.Pv = GlobalVar.PV;
-            Relationships = new Dictionary<Character, RelationshipEnum>();
+            Relations = new List<Relation>();
         }
 
 
-        public void AddRelatives(Character Character, RelationshipEnum Relationship)
+        public void AddRelation(Character Character, RelationType Relation)
         {
-            Relationships.Add(Character, Relationship);
+            Relations.Add(new Relation(Character, Relation));
         }
 
         override
         public String ToString()
         {
             String s = FirstName + " " + LastName + "\n- Bravoury : " + Bravoury + "\n- Crazyness : " + Crazyness + "\n- Pv : " + Pv + "\n";
-            if (Relationships.Count != 0)
+            if (Relations.Count != 0)
             {
                 s += "- Relationships :\n";
-                foreach (KeyValuePair<Character, RelationshipEnum> relation in Relationships)
+                foreach (Relation relation in Relations)
                 {
-                    s += String.Format("\t{2} with {0} {1}\n", relation.Key.FirstName, relation.Key.LastName, relation.Value);
+                    s += String.Format("\t{2} with {0} {1}\n", relation.Character.FirstName, relation.Character.LastName, relation.RelationType.Name);
                 }
             }
             

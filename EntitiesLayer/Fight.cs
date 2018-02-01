@@ -13,6 +13,7 @@ namespace EntitiesLayer
         private House _houseChalleged;
         private House _winningHouse;
         private Territory _territory;
+        private War _war;
 
 
         public House HouseChalleging
@@ -37,6 +38,12 @@ namespace EntitiesLayer
         {
             get { return _territory; }
             set { _territory = value; }
+        }
+
+        public War War
+        {
+            get { return _war; }
+            set { _war = value; }
         }
 
 

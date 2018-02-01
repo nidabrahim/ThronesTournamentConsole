@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace EntitiesLayer
 {
-    public class TerritoryType
+    public class CharacterType
     {
-        private int _idTerritoryType;
+        private int _idCharacterType;
         private string _name;
 
-        public int IdTerritoryType
+        public int IdCharacterType
         {
-            get { return _idTerritoryType; }
-            set { _idTerritoryType = value; }
+            get { return _idCharacterType; }
+            set { _idCharacterType = value; }
         }
 
         public string Name
@@ -24,10 +24,9 @@ namespace EntitiesLayer
         }
 
 
-        public TerritoryType() { }
+        public CharacterType() { }
 
-        public TerritoryType(TerritoryTypeEnum type)
-        {
+        public CharacterType(CharaterTypeEnum type) {
 
             _name = type.ToString();
         }

@@ -11,6 +11,14 @@ namespace WebApiGoT.Models
         public List<FightDTO> Fights;
 
 
-        public WarDTO(War war) { }
+        public WarDTO(War war) {
+
+            this.Fights = new List<FightDTO>();
+
+            foreach (Fight fight in war.Fights)
+            {
+                this.Fights.Add(new FightDTO(fight));
+            }
+        }
     }
 }

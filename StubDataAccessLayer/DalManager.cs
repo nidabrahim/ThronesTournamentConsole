@@ -44,7 +44,7 @@ namespace StubDataAccessLayer
         public List<Territory> GetAllTerritory()
         {
             List<Territory> territories = new List<Territory>();
-            territories.Add(new Territory(TerritoryType.DESERT));
+            territories.Add(new Territory(TerritoryTypeEnum.DESERT));
 
             return territories;
         }

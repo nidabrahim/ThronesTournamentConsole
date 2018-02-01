@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using EntitiesLayer;
 
+
 namespace WebApiGoT.Models
 {
+   
     public class CharacterDTO
     {
         public string FirstName { get; set; }

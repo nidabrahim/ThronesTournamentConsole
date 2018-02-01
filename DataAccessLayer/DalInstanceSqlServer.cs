@@ -33,7 +33,7 @@ namespace DataAccessLayer
                         House house = new House();
                         house.idEntityObject = Int32.Parse(sqlDataReader["idHouse"].ToString());
                         house.Name = sqlDataReader["name"].ToString();
-                        house.NumberOfUnities = Int32.Parse(sqlDataReader["name"].ToString());
+                        house.NumberOfUnities = Int32.Parse(sqlDataReader["numberOfUnities"].ToString());
 
                         houses.Add(house);
                     }
@@ -123,7 +123,32 @@ namespace DataAccessLayer
 
         public List<Character> GetAllCharacters()
         {
-            throw new NotImplementedException();
+            List<Character> characters = new List<Character>();
+
+            using (SqlConnection sqlConnection = new SqlConnection(connexionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Character", sqlConnection);
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        Character character = new Character();
+                        character.idEntityObject = Int32.Parse(sqlDataReader["idCharacter"].ToString());
+                        character.FirstName = sqlDataReader["firstName"].ToString();
+                        character.LastName = sqlDataReader["lastName"].ToString();
+                        character.Bravoury = Int32.Parse(sqlDataReader["bravoury"].ToString());
+                        character.Crazyness = Int32.Parse(sqlDataReader["crazyness"].ToString());
+                        character.Pv = Int32.Parse(sqlDataReader["pv"].ToString());
+                        //_relationships
+
+                        characters.Add(character);
+                    }
+                }
+                sqlConnection.Close();
+            }
+
+            return characters;
         }
 
         public Character GetCharacterById(int id)
@@ -138,11 +163,11 @@ namespace DataAccessLayer
                 {
                     while (sqlDataReader.Read())
                     {
-                        character.FirstName = sqlDataReader["FirstName"].ToString();
-                        character.LastName = sqlDataReader["LastName"].ToString();
-                        character.Bravoury = Int32.Parse(sqlDataReader["Bravoury"].ToString());
-                        character.Crazyness = Int32.Parse(sqlDataReader["Crazyness"].ToString());
-                        character.Pv = Int32.Parse(sqlDataReader["Pv"].ToString());
+                        character.FirstName = sqlDataReader["firstName"].ToString();
+                        character.LastName = sqlDataReader["lastName"].ToString();
+                        character.Bravoury = Int32.Parse(sqlDataReader["bravoury"].ToString());
+                        character.Crazyness = Int32.Parse(sqlDataReader["crazyness"].ToString());
+                        character.Pv = Int32.Parse(sqlDataReader["pv"].ToString());
                         //_relationships
 
                     }
@@ -187,8 +212,12 @@ namespace DataAccessLayer
                 {
                     while (sqlDataReader.Read())
                     {
-                        //Fight. = sqlDataReader["FirstName"].ToString();
-
+                        fight.idEntityObject = Int32.Parse(sqlDataReader["idFight"].ToString());
+                        fight.HouseChalleged = GetHouseById(Int32.Parse(sqlDataReader["houseChalleged_id"].ToString()));
+                        fight.HouseChalleging = GetHouseById(Int32.Parse(sqlDataReader["houseChalleging_id"].ToString()));
+                        fight.WinningHouse = GetHouseById(Int32.Parse(sqlDataReader["winningHouse_id"].ToString()));
+                        fight.Territory = GetTerritoryById(Int32.Parse(sqlDataReader["territory_id"].ToString()));
+                        //fight.War = war;
 
                     }
                 }
@@ -217,12 +246,53 @@ namespace DataAccessLayer
 
         public List<Territory> GetAllTerritories()
         {
-            throw new NotImplementedException();
+            List<Territory> Territories = new List<Territory>();
+
+            using (SqlConnection sqlConnection = new SqlConnection(connexionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Territory", sqlConnection);
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        Territory territory = new Territory();
+                        territory.idEntityObject = Int32.Parse(sqlDataReader["IdTerritory"].ToString());
+                        territory.Owner = GetCharacterById(Int32.Parse(sqlDataReader["owner_id"].ToString()));
+                        territory.TerritoryType = GetTerritoryTypeById(Int32.Parse(sqlDataReader["territoryType_id"].ToString()));
+
+
+                        Territories.Add(territory);
+                    }
+                }
+                sqlConnection.Close();
+            }
+
+            return Territories;
         }
         
         public Territory GetTerritoryById(int id)
         {
-            throw new NotImplementedException();
+            Territory territory = new Territory();
+
+            using (SqlConnection sqlConnection = new SqlConnection(connexionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Territory WHERE IdTerritory = " + id, sqlConnection);
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        territory.idEntityObject = Int32.Parse(sqlDataReader["IdTerritory"].ToString());
+                        territory.Owner = GetCharacterById(Int32.Parse(sqlDataReader["owner_id"].ToString()));
+                        territory.TerritoryType = GetTerritoryTypeById(Int32.Parse(sqlDataReader["territoryType_id"].ToString()));
+
+                    }
+                }
+                sqlConnection.Close();
+            }
+
+            return territory;
         }
 
         public void SaveTerritory(Territory territory)
@@ -240,8 +310,80 @@ namespace DataAccessLayer
             throw new NotImplementedException();
         }
 
-       
 
-        
+
+        public TerritoryType GetTerritoryTypeById(int id)
+        {
+            TerritoryType territoryType = new TerritoryType();
+
+            using (SqlConnection sqlConnection = new SqlConnection(connexionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM TerritoryType WHERE IdTerritoryType = " + id, sqlConnection);
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        territoryType.IdTerritoryType = Int32.Parse(sqlDataReader["IdTerritoryType"].ToString());
+                        territoryType.Name = sqlDataReader["name"].ToString();
+                    }
+                }
+                sqlConnection.Close();
+            }
+
+            return territoryType;
+        }
+
+
+        public List<War> GetAllWars()
+        {
+            List<War> Wars = new List<War>();
+
+            using (SqlConnection sqlConnection = new SqlConnection(connexionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("SELECT * FROM War", sqlConnection);
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        War war = new War();
+                        war.idEntityObject = Int32.Parse(sqlDataReader["idWar"].ToString());
+
+
+                        Wars.Add(war);
+                    }
+                }
+
+                foreach (War war in Wars)
+                {
+                    sqlCommand = new SqlCommand("SELECT * FROM Fight WHERE war_id = " + war.idEntityObject, sqlConnection);
+                    using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                    {
+                        List<Fight> fights = new List<Fight>();
+                        while (sqlDataReader.Read())
+                        {
+                            Fight fight = new Fight();
+                            fight.idEntityObject = Int32.Parse(sqlDataReader["idFight"].ToString());
+                            fight.HouseChalleged = GetHouseById(Int32.Parse(sqlDataReader["houseChalleged_id"].ToString()));
+                            fight.HouseChalleging = GetHouseById(Int32.Parse(sqlDataReader["houseChalleging_id"].ToString()));
+                            fight.WinningHouse = GetHouseById(Int32.Parse(sqlDataReader["winningHouse_id"].ToString()));
+                            fight.Territory = GetTerritoryById(Int32.Parse(sqlDataReader["territory_id"].ToString()));
+                            fight.War = war;
+
+
+
+                            fights.Add(fight);
+
+                        }
+                        war.Fights = fights;
+                    }
+                }
+
+                sqlConnection.Close();
+            }
+
+            return Wars;
+        }
     }
 }

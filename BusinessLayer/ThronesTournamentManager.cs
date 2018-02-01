@@ -28,7 +28,7 @@ namespace BusinessLayer
         public List<War> ListWars()
         {
             List<War> res = new List<War>();
-           // dal.GetAllWars().ForEach(h => res.Add(h));
+            dal.GetAllWars().ForEach(h => res.Add(h));
 
             return res;
         }

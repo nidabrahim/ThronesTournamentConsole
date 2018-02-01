@@ -29,7 +29,7 @@ namespace EntitiesLayer
 
         public Territory()
         {
-            TerritoryType = TerritoryType.DESERT;
+            TerritoryType = new TerritoryType(TerritoryTypeEnum.DESERT);
             Owner = null;
         }
 
